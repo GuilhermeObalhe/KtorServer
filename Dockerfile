@@ -9,7 +9,7 @@ COPY . .
 RUN chmod +x ./gradlew
 
 # Roda o fatJar usando o Gradle Wrapper
-RUN ./gradlew fatJar --no-daemon
+RUN ./gradlew buildFatJar --no-daemon
 
 # === Stage 2: runtime ===
 FROM eclipse-temurin:17-jre
