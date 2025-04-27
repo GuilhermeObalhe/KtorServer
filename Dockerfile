@@ -23,4 +23,4 @@ EXPOSE 8080
 ENV PORT=${PORT}
 
 # Comando de inicialização
-ENTRYPOINT ["java", "-jar", "fat.jar"]
+ENTRYPOINT ["java","-jar","fat.jar","-port","${PORT}"]
