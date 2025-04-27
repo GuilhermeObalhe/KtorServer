@@ -17,10 +17,11 @@ WORKDIR /app
 
 # Copia o fat.jar gerado no builder
 COPY --from=builder /app/build/libs/fat.jar ./fat.jar
+COPY src/main/resources/application.yaml ./application.yaml
 
 # Expõe a porta padrão e usa a variável $PORT injetada pelo ambiente
 EXPOSE 8080
 ENV PORT=${PORT}
 
 # Comando de inicialização
-ENTRYPOINT ["java","-jar","fat.jar","-port","${PORT}"]
+ENTRYPOINT java -jar fat.jar -config application.yaml -port $PORT
